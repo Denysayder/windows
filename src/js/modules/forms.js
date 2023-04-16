@@ -1,6 +1,6 @@
 import { post } from "jquery";
 import checkNumInputs from "./checkNumInputs";
-
+// import { closeModal } from "./modals";
 const forms = (state) => {
     const form = document.querySelectorAll('form'),
         input = document.querySelectorAll('input');
@@ -52,6 +52,7 @@ const forms = (state) => {
                     clearInputs();
                     setTimeout(() => {
                         statusMessage.remove();
+                        closeModal(windows, modal);
                     }, 5000);
                 });
         });

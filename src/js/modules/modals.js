@@ -1,3 +1,6 @@
+import { expr } from "jquery";
+import closeModal from "./closeModal";
+
 const modals = () => {
     function bindModal(triggerSelector, modalSelector, closeSelector, closeClickOverlay = true) {
         const trigger = document.querySelectorAll(triggerSelector),
@@ -20,13 +23,7 @@ const modals = () => {
         });
 
         close.addEventListener('click', (e) => {
-
-            windows.forEach(item => {
-                item.style.display = 'none';
-            });
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-
+            closeModal(windows, modal);
         });
 
         modal.addEventListener('click', (e) => {
@@ -56,6 +53,7 @@ const modals = () => {
     bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false);
     bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close');
     // showModalByTime('.popup', 60000);
+
 };
 
 export default modals;
